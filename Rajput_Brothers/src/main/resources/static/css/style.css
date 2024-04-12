@@ -1,0 +1,115 @@
+@charset "ISO-8859-1";
+
+body{
+	
+}
+
+.btn-color, .nav-color{
+	background-color:crimson;
+}
+
+.btn-search{
+	background-color: white;
+	color: #55ACEE;
+}
+
+.search-box , .admin-card{
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.admin-card-logo , .booked-card{
+	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.booked{
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.nav-header{
+     padding: 10px;
+	 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.nav-header-open{
+     padding: 10px;
+	 box-shadow: 0 8px 16px 0 rgb(128, 128, 128), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn-login-color:hover{
+/*	color:#fff!important;*/
+/*	background: black;*/
+	 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.card-shadow , .btn-shadow{
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.register-img{
+	height: 100px;
+}
+
+.banner{
+	width: 100%;
+	height: 92vh;
+	background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../images/bike-bg-main-screen.jpg");
+	color: white;
+	background-size: cover;
+}
+
+.rotate {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*zoom effect on image*/
+.zoom:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(0.9); 
+/*  border-radius: 80%;*/
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+.location-img{
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	cursor: pointer;
+	
+}
+
+.location-card{
+box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.date-time-card{
+box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.date-time-add{
+	box-shadow: rgb(128, 128, 128) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .banner {
+    width: 100%;
+    height:100vh;
+    background-size:cover;
+/*    background-position-x: center;*/
+    background-position: center;
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../images/bike-bg-mob-screen.jpg");
+  }
+}

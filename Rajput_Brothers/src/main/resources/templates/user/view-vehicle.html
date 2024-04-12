@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/base::layout(~{::section})">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <section>
+		<div class="mt-5">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card card-shadow py-3">
+						<div class="container text-center">
+							
+                  <h1 style="font-size: small;">*All prices are exclusive of taxes and fuel. Images used for representation purposes only, actual color may vary.</h1>
+						
+						</div>
+						
+						<div class="card-body">
+							
+
+
+<div class="card-columns col-md-12">
+	<form th:action="@{/user/booked}">
+	<div th:each="vehicle:${vehicles}">
+		<div class="card booked-card">
+			<div class="container text-center">
+				<h5 style="color: rgb(0, 0, 0);font-style: italic;font-weight:bolder;" class="card-title mt-2" th:text="${vehicle.title}"></h5>
+				<img class="card-img-top zoom img-rad" th:src="@{'/images/'+${vehicle.image}}" style=" height: 370px;">
+			</div>
+			<div class="card-body">
+			<div class="container text-center">
+				<h5 th:style="${vehicle.status == 'Available' ? 'color:green' : 'color:red'}"  th:text="${vehicle.status}">Available At</h5>
+				<div style="display: flex;">
+					<div>
+					<h3 style="font-size:large;"  th:text="${mypickupDate}"></h3>
+					<p th:text="${mypickupTime}"></p>
+				</div>
+				<div style="margin: auto;" >
+					<i><b>to</b></i>
+				</div>
+				<div>
+					<h3 style="font-size:large;" th:text="${mydropoffDate}"></h3>
+				    <p th:text="${mydropoffTime}"></p>
+				</div>
+				</div>
+				
+				<div  class="d-flex justify-content-center align-items-center" >
+					<h5 style="color: crimson;" class="card-title"><span th:text="${vehicle.city}+'('+${vehicle.cityLocation}+')'"></span></h5>
+				</div>
+				<div>
+					<p th:text="${vehicle.description}">Desrc</p>
+				</div>
+					
+			</div>
+<!--				<p class="card-text" th:text="${T(com.food.helper.DescriptionShort).get10Words(food.description)}"></p>-->
+			</div>
+<!--			<div class="card-body"  style="display: flex;">-->
+<!--			<div class="container text-center">-->
+<!--				<b th:text="${vehicle.number}"></b>-->
+<!--			</div>-->
+			
+<!--			<div class="container text-center">-->
+<!--				<b class="text-black">&#8377&nbsp<b th:text="${vehicle.price}" class="text-black"></b> <i th:text="${vehicle.price}*${mydateDiff}"></i> </b>-->
+<!--			</div>-->
+			
+<!--			<div class="container text-center">-->
+<!--				<a class="btn btn-color text-white">Book</a>-->
+<!--			</div>-->
+			
+			
+<!--		</div>-->
+
+
+<div class="card-footer text-center">
+<!--			<b class="text-black">&#8377&nbsp<b th:text="${food.getPriceAfterDiscount()}" class="text-black"></b> </b>-->
+<!--			<b style="font-style: italic;">Price for(<span th:text="${mydateDiff}==0?1:${mydateDiff}"></span>&nbsp;Days)&nbsp;&#8377;<b class="text-danger" th:text="${vehicle.price}*${mydateDiff}==0?${vehicle.price}*1:${vehicle.price}*${mydateDiff}"></b> in which&nbsp<b style="color: crimson;" th:text="${vehicle.km}*${mydateDiff}==0?${vehicle.km}*1:${vehicle.km}*${mydateDiff}"></b>&nbsp;km included</b>-->
+<!--		   <button th:disabled="${vehicle.status=='Booked'}" class="btn btn-color btn-block text-white booked mt-3">Book</button>-->
+		
+		<b style="font-style: italic;">Price for(<span th:text="${mydateDiff}==0?1:${mydateDiff}"></span>&nbsp;Days)&nbsp;&#8377;<b class="text-danger" th:text="${vehicle.price}!=null AND ${mydateDiff}!=null?${vehicle.price}*${mydateDiff}:' /-'"></b> in which&nbsp<b style="color: crimson;" th:text="${vehicle.km}!=null AND ${mydateDiff}!=null?${vehicle.km}*${mydateDiff}":'-'></b>&nbsp;km included</b>
+<!--		<button th:text="${mydateDiff}==null?'Select Time & Date':'Book'"  th:disabled="${mydateDiff}==null OR ${vehicle.status}=='Booked'" class="btn btn-color btn-block text-white booked mt-3" type="submit">Book</button>-->
+<!--		   <button th:text="${mydateDiff}==null?'Select Time & Date':'Book'"  th:disabled="${mydateDiff}==null OR ${vehicle.status}=='Booked'" class="btn btn-color btn-block text-white booked mt-3" type="submit">Book</button>-->
+		 <button th:text="${mydateDiff}==null?'Select Time & Date':'Book'"  th:disabled="${mydateDiff}==null OR ${vehicle.status}=='Booked'" class="btn btn-color btn-block text-white booked mt-3" type="submit" th:value="${vehicle.id}" name="vehicleId">Book</button>
+		</div>
+
+
+		</div>
+	</div>
+		</form>
+</div>
+						 
+						 
+                         
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

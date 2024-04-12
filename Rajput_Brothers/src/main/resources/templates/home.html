@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	
+	   <section>
+	
+
+	<div class="row banner d-flex mx-auto justify-content-center align-items-center">
+  <div class="col-sm-6">
+    <div class="card" style="background: transparent;">
+      <div class="card-body">
+       <div class="container text-center">
+		  <h1 class="card-title" style="font-style: italic;">Rajput Brothers</h1>
+		     <p class="card-text">"Your Reliable Ride, It's Our Pride" "Fast and Smooth, We're on the Move" "On Time, Every Time, for You We'll Rhyme" "Wherever You Go, We'll Take You with Flow"</p>
+		    <a href="#" class="btn btn-color btn-lg text-white nav-header-open" th:href="@{/login}" style="text-decoration: none;">Get Start</a>
+	   </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card  date-time-add" >
+      <div class="card-body">
+        <div class="text-center">
+			
+				
+					 <h3 style="color: black; font-weight: bold;font-style: italic;font-family: Arial, Helvetica, sans-serif;font-variant: small-caps;" >Experience elegance behind the wheel &#128526;</h3>
+				  
+				<form th:action="@{/view-vehicle}">
+					 <!--Validation Message-->
+				<th:block th:if="${session.message}">
+							<p class="text-center text-danger fs-4 mt-3" style="font-size: larger;">[[${session.message}]]</p>
+							<th:block th:text="${@userServiceImpl.removeMessage()}" style="font-size: larger;"></th:block>
+				</th:block>
+		<!--Validation Message-->
+					<div >
+					  <input  name="pickup-date"  type="datetime-local" placeholder="Pickup Date" style="width: 161px;">
+			     <input name="pickup-time" type="datetime" placeholder="Pickup Time" style="width: 161px;">     
+				</div>
+			 
+			
+				<div class="mt-1">
+					  <input name="dropoff-date" type="datetime-local" placeholder="Dropoff Date" style="width: 161px;"> 
+			  <input name="dropoff-time" type="datetime" placeholder="Dropoff Time" style="width: 161px;">     
+				</div>
+				
+				<button type="submit" class="btn btn-color mt-3 text-white btn-login-color">Submit</button>
+				</form>
+			 
+				
+			 
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+	
+
+	</section>
+</body>
+</html>
